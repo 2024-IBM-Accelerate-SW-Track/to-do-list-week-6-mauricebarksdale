@@ -68,7 +68,7 @@ async function getItems (request, response) {
 //** week 6, search items service */
 app.get("/get/searchitem", searchItems) 
 async function searchItems (request, response) {
-    var searchField = request.query.searchField;
+    var searchField = request.query.taskname;
     var json = JSON.parse(await fsPromises.readFile("database.json"));
     var returnData = json.filter(jsondata => jsondata.Task === searchField);
     response.json(returnData);
